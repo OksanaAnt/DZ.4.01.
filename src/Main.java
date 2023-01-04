@@ -57,10 +57,10 @@ public class Main {
                 }
 
                 case LIST: {
-                    System.out.println(animal.toString());
+                    for (AbsAnimal a : animal)
+                        System.out.println(a.toString());
                     break;
                 }
-
                 case EXIT: {
                     System.exit(0);
                 }
@@ -103,7 +103,7 @@ public class Main {
             boolean isNumber = false;
             {
                 try {
-                    if (Integer.parseInt(string) < 0) {
+                    if (Integer.parseInt(string) <= 0) {
                         throw new Exception();
                     }
                     Integer.parseInt(string);
@@ -114,7 +114,7 @@ public class Main {
                     System.out.println("Повторите ввод: ");
                     return false;
                 } catch (Exception e) {
-                    System.out.println("Вы ввели отрицательное число");
+                    System.out.println("Вы ввели отрицательное число или 0.");
                     System.out.println("Повторите ввод: ");
                     return false;
                 }
